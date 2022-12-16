@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | News homepage</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+
+    *
+    {
+      padding: 0px;
+      margin: 0px;
+      box-sizing: border-box;
+    }
+
+    @font-face
+    {
+      font-family: "Boldfont";
+      src: url("assets/fonts/static/Inter-Bold.ttf");
+    }
+
+    @font-face
+    {
+      font-family: "ExtraBoldfont";
+      src: url("assets/fonts/static/Inter-ExtraBold.ttf");
+    }
+
+    @font-face
+    {
+      font-family: "Regularfont";
+      src: url("assets/fonts/static/Inter-Regular.ttf");
+    }
+
+
+    .main-container
+    {
+      width: 100%;
+      height: auto;
+      background: white;
+      padding: 60px 150px;
+      position: relative;
+    }
+
+    .header
+    {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      position: relative;
+    }
+
+    .header .icon-menu
+    {
+      position: absolute;
+      right: 0;
+      display: none;
+    }
+
+    .header ul
+    {
+      display: flex;
+    }
+
+    .header ul li
+    {
+      list-style: none;
+      padding: 0 20px;
+    }
+
+    .header ul li a
+    {
+      font-family: 'Regularfont';
+      text-decoration: none;
+      color: black;
+      text-transform: capitalize;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .header ul li a:hover
+    {
+      color: rgba(255, 0, 0, 0.6);
+    }
+
+    /* --------- Header End --------- */
+
+
+
+
+
+    .homepage-banner
+    {
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .banner-column1
+    {
+      width: 100%;
+      height: 100%;
+      margin-right: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .banner-column1 .image-area .banner-img-desktop
+    {
+      width: 100%;
+      height: auto;
+    }
+
+    .banner-column1 .image-area .banner-img-mobile
+    {
+      display: none;
+    }
+
+    .banner-column1 .text-area
+    {
+      display: flex;
+      justify-content: space-between;
+      /*align-items: center;*/
+    }
+
+    .text-area .inner-paragraph
+    {
+      display: flex;
+      flex-direction: column;
+      width: 55%;
+      padding: 10px;
+    }
+
+    .text-area .inner-paragraph p
+    {
+      font-family: 'RegularFont';
+      font-size: 14px;
+      line-height: 24px;
+      color: gray;
+    }
+
+    .text-area .inner-paragraph a
+    {
+      width: 140px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: 'Boldfont';
+      color: white;
+      background: rgba(255, 0, 0, 0.6);
+      font-size: 12px;
+      margin-top: 40px;
+      transition: 0.3s;
+    }
+
+    .text-area .inner-paragraph a:hover
+    {
+      background: black;
+    }
+
+    .banner-column1 .text-area h1
+    {
+      font-family: 'Boldfont';
+      text-transform: capitalize;
+      font-size: 50px;
+      margin-right: 40px;
+      width: 40%;
+    }
+
+    .banner-column2
+    {
+      width: 500px;
+      height: 535px;
+      background: black;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .banner-column2 h1
+    {
+      font-family: 'Boldfont';
+      color: #ff9933;
+    }
+
+    .banner-column2 li
+    {
+      font-family: 'RegularFont';
+      list-style: none;
+      margin: 26px 0;
+      padding-bottom: 40px;
+    }
+
+    .banner-column2 li:nth-child(2),
+    .banner-column2 li:nth-child(3)
+    {
+      border-bottom: 2px solid gray;
+    }
+
+    .banner-column2 li span
+    {
+      font-family: 'Boldfont';
+      font-size: 18px;
+    }
+
+    .banner-column2 li span:hover
+    {
+      color: #ff9933;
+      cursor: pointer;
+    }
+
+    .banner-column2 li p
+    {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    /* ---------- Homepage Banner End -------- */
+
+
+    .headline-row
+    {
+      padding: 40px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .headline-row li
+    {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 10px;
+    }
+
+    .headline-row li img
+    {
+      width: 100px;
+      height: auto;
+    }
+
+    .headline-text
+    {
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      /*align-items: center;*/
+    }
+
+    .headline-text p
+    {
+      font-family: 'Regularfont';
+      font-size: 12px;
+      /*margin-top:10px;*/
+    }
+
+    .headline-text span
+    {
+      font-family: 'Boldfont';
+      font-size: 32px;
+      color: rgb(210, 210, 210);
+    }
+
+    .headline-text a
+    {
+      font-family: 'Boldfont';
+      font-size: 16px;
+      margin: 10px 0;
+      text-decoration: none;
+      color: black;
+      transition: 0.3s;
+    }
+
+    .headline-text a:hover
+    {
+      color: rgba(255, 0, 0, 0.8);
+    }
+
+    /* -------- Headline Row End ------- */
+
+
+
+    .responsive-header
+    {
+      display: none;
+    }
+
+    .attribution 
+    {
+      font-family: 'Boldfont';
+      font-size: 11px; 
+      text-align: center;
+      padding: 10px 0;
+    }
+    .attribution a
+    {
+      color: rgba(255, 0, 0, 0.8); 
+      text-decoration: none;
+    }
+
+
+
+
+
+
+
+
+    /* ------------------------------------------------- */
+    /* ------------ Responsive Media Start ------------- */
+
+    @media(max-width: 480px)
+    {
+      .main-container
+      {
+        padding: 20px 10px;
+        overflow: hidden;
+      }
+
+      .header .icon-menu
+      {
+        position: absolute;
+        right: 0;
+        display: block;
+        cursor: pointer;
+      }
+
+      .header ul
+      {
+        display: none;
+      }
+
+
+      /* --------- Responsive Header End --------- */
+
+
+
+
+
+      .homepage-banner
+      {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+      }
+
+      .banner-column1
+      {
+        width: 100%;
+        height: auto;
+        margin-right: 0px;
+      }
+
+      .banner-column1 .image-area .banner-img-desktop
+      {
+        display: none;
+      }
+
+      .banner-column1 .image-area .banner-img-mobile
+      {
+        display: none;
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .banner-column1 .text-area
+      {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px 0;
+      }
+
+      .text-area .inner-paragraph
+      {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .text-area .inner-paragraph a
+      {
+        margin-top: 10px;
+      }
+
+      .text-area .inner-paragraph a:hover
+      {
+        background: black;
+      }
+
+      .banner-column1 .text-area h1
+      {
+        font-size: 40px;
+        margin-right: 0px;
+        width: 100%;
+        padding: 0 10px;
+      }
+
+      .banner-column2
+      {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        margin-top: 20px;
+      }
+
+      .banner-column2 li
+      {
+        padding-bottom: 20px;
+      }
+
+      /* ---------- Responsive Homepage Banner ------------ */
+
+
+
+
+
+      .headline-row
+      {
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .headline-row li
+      {
+        margin: 20px 0px;
+      }
+
+      /* -------- Responsive Headline Row -------- */
+
+
+
+      .responsive-header
+      {
+        width: 50%;
+        height: 100%;
+        background: white;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background: white;
+        z-index: 1;
+        padding: 20px;
+        /*display: block;*/
+      }
+
+
+      .responsive-header .header-close
+      {
+        float: right;
+        cursor: pointer;
+      }
+
+      .responsive-header .header-menu
+      {
+        margin-top: 100px;
+      }
+
+      .header-menu ul li
+      {
+        list-style: none;
+        padding: 10px 0;
+      }
+
+      .header-menu ul li a
+      {
+        text-decoration: none;
+        color: black;
+        font-family: 'Regularfont';
+        text-transform: capitalize;
+      }
+
+
+      /* --------------------- Responsive Header End ------------- */
+
+      .fade
+      {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(35, 35, 35, 0.5);
+        display: none;
+      }
+    }
+
+  </style>
+
+
+<!-- -------------- Style End --------------- -->
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+  <div class="main-container">
+    
+
+
+
+      <!-- ----------- Header Start ----------- -->
+      <div class="header">
+          <div class="logo">
+              <img src="assets/images/logo.svg">
+          </div>
+
+          <ul>
+              <li><a href="#">home</a></li>
+              <li><a href="#">new</a></li>
+              <li><a href="#">popular</a></li>
+              <li><a href="#">trending</a></li>
+              <li><a href="#">categories</a></li>
+          </ul>
+
+          <img src="assets/images/icon-menu.svg" class="icon-menu" onclick="headerOpen()">
+      </div>
+
+
+
+
+
+
+      <!-- --------------- Homepage Banner Start ------------ -->
+
+      <div class="homepage-banner">
+        
+          <div class="banner-column1">
+              <div class="image-area">
+                  <img src="assets/images/image-web-3-desktop.jpg" class="banner-img-desktop">
+                  <img src="assets/images/image-web-3-mobile.jpg" class="banner-img-mobile">
+              </div>
+
+              <div class="text-area">
+                  <h1>the bright future of web 3.0?</h1>
+                  <div class="inner-paragraph">
+                      <p>We dive into the next evolution of the web that claims to put the power of the platforms back into the handa of the people.But is it really fulfiling its promise?</p>
+
+                      <a href="#">read more</a>
+                  </div>
+              </div>
+          </div>
+
+          <div class="banner-column2">
+              <h1>New</h1>
+              <li><span>Hydrogen VS Electric Cars</span>
+                  <p>Will hydrogen-fueled cars ever catch up to EVs?"</p>
+              </li>
+
+              <li><span>The Downloads of AI Artistry</span>
+                  <p>"What are the possible adverce effects of on-demand AI image generation?"</p>
+              </li>
+
+              <li><span>Is VC Funding Drying Up?</span>
+                  <p>"Private funding by VC firms is down 50% YOY.We take a took at what that means."</p>
+              </li>
+          </div>
+
+      </div>
+
+
+
+
+      <!-- ---------- Headline Row Start ------------ -->
+      <div class="headline-row">
+          <li>
+              <img src="assets/images/image-retro-pcs.jpg">
+              <div class="headline-text">
+                    <span>01</span>
+                    <a href="#">Reviving Retro PCs</a>
+                    <p>What happens when old PCs are given modern upgrades?</p>
+              </div>
+          </li>
+
+          <li>
+              <img src="assets/images/image-top-laptops.jpg">
+              <div class="headline-text">
+                    <span>02</span>
+                    <a href="#">Top 10 Laptops of 2022</a>
+                    <p>Our best picks for various needs and budgets.</p>
+              </div>
+          </li>
+
+          <li>
+              <img src="assets/images/image-gaming-growth.jpg">
+              <div class="headline-text">
+                    <span>03</span>
+                    <a href="#">The Growth of Gaming</a>
+                    <p>How the pandemic has sparked fresh opportunities.</p>
+              </div>
+          </li>
+      </div>
+
+
+      <div class="attribution">
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+          Coded by <a href="#">Dheeraj Kumar Yadav</a>.
+      </div>
+
+
+
+
+
+
+      <!-- -------- Responsive Header Start ----------- -->
+      <div class="fade"></div>
+      <div class="responsive-header">
+          <img src="assets/images/icon-menu-close.svg" onclick="headerClose()" class="header-close">
+
+          <div class="header-menu">
+              <ul>
+                  <li><a href="#">home</a></li>
+                  <li><a href="#">new</a></li>
+                  <li><a href="#">popular</a></li>
+                  <li><a href="#">trending</a></li>
+                  <li><a href="#">categories</a></li>
+              </ul>
+          </div>
+      </div>
+
+
+  </div>
+
+
+
+
+
+
+<!-- -------------- JS Start ------------- -->
+
+<script type="text/javascript">
+  
+  function headerOpen() 
+  {
+      document.querySelector('.responsive-header').style.display = "block";
+      document.querySelector('.fade').style.display = "block"
+  }
+
+  function headerClose() 
+  {
+      document.querySelector('.responsive-header').style.display = "none";
+      document.querySelector('.fade').style.display = "none"
+  }
+
+</script>
+
+
+<!-- ---------------- JS End ------------- -->
+
+
+</body>
+</html>
